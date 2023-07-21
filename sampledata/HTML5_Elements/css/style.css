@@ -1,0 +1,80 @@
+html {
+    padding: 1%;
+    background-color: white;
+}
+body {
+    padding: 0;
+    margin: 0 auto;
+    background-color: rgba(0, 163, 163, 1);
+    font-family: 'Voces', cursive;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+    margin: 0 auto;
+}
+header,
+nav,
+section,
+article,
+aside,
+footer {
+    border: 1px solid white;
+}
+header {
+    color: white;
+    height: 15%;
+}
+header .title {
+    font-size: 50px;
+}
+.title {
+    text-align: center;
+}
+nav {
+    text-align: center;
+}
+section, article{
+   
+    height: auto;
+    border-bottom: solid white 5px;
+}
+article h2, aside h2{
+text-align: center;
+}
+aside{
+    width: 33%;
+    float: right;
+    max-height: 50%;
+    
+}
+nav ul {
+    font-size: 2em;
+    text-align: center;
+    color: white;
+    list-style: none;
+    display: inline;
+    min-width: 100%;
+    cursor: pointer;
+}
+nav ul li {
+    display: inline;
+}
+nav li + li:before {
+    content: " | ";
+    padding: 0 10px;
+}
+input {
+    text-align: center;
+}
+tr th{
+    border-collapse: collapse;
+}
+td {
+    border: solid white 1px;
+    text-align: center;
+    margin: 0 auto;
+}
+table{
+    margin: 0 auto;
+}

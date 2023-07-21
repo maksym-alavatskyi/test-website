@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title> 
+        <link rel="shortcut icon" type="image/png" href="../jasmine/lib/jasmine-2.0.0/jasmine_favicon.png">
+        <link rel="stylesheet" type="text/css" href="../jasmine/lib/jasmine-2.0.0/jasmine.css">
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/jasmine.js"></script>
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/jasmine-html.js"></script>
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/boot.js"></script>
+        <script src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script src="../build/ElementAddressing.js"></script>
+        <script type="text/javascript">
+            ct.ElementAddressing.bootstrap(window);
+        </script>
+    </head>
+<body id="bodyId" name="bodyName">
+    <div class="a">
+        <div>
+            <span></span>
+            <span>
+                <input type="text" id="unique" />
+            </span>
+            <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                    
+            </select>
+        </div>
+        <div id="unique"></div>
+    </div>
+    <script>
+        $(function(){
+            debugger;
+            var uniqueEl = document.getElementById("unique");
+            var path = ct.ElementAddressing.getPathFromElement(uniqueEl, document.body);
+            
+            uniqueEl.parentNode.insertBefore(document.createElement("input"), uniqueEl);
+            var resolvedEl = ct.ElementAddressing.elementFromPath(path, document.body);
+            
+            
+            
+            console.log("resolvedEl and uniqueEl are equal: ", uniqueEl === resolvedEl);
+        });
+        
+        
+        $(function(){
+            var uniqueEl = document.getElementById("unique");
+            ct.ElementAddressing.setCustomElementID(uniqueEl, "Shmulik");
+            var path = ct.ElementAddressing.getPathFromElement(uniqueEl, document.body);
+            
+            uniqueEl.parentNode.insertBefore(document.createElement("input"), uniqueEl);
+            var resolvedEl = ct.ElementAddressing.elementFromPath(path, document.body);
+            console.log("resolvedEl and uniqueEl are equal: ", uniqueEl === resolvedEl);
+        });
+        
+        
+        /*ct.ElementAddressing.setCustomElementID(rootSiblings[i], rootSiblings[i].nodeName + i + 'CustomId');
+        
+        describe("Element Addressing Auto Test", function () {
+            it("Go over all elements & calc addressing", function () {
+                for (var i = 1; i < selctionElem.options.length; ++i) {
+                    if (selctionElem.options[i].text != '') {
+                        selctionElem.selectedIndex = i;
+                        testResult = TestPathFromElementAndReverse(false) && TestPathFromElementAndReverse(true);
+                        if (!testResult) {
+                            expect(testResult).toBeTruthy();
+                            break;
+                        }
+                    }
+                    else {
+                        continue;
+                    }                        
+                }
+                expect(testResult).toBeTruthy();
+            });
+        });*/
+        
+    </script>
+</body>
+</html>

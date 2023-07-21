@@ -1,0 +1,41 @@
+html {
+  margin: 0 auto;
+  padding: 0;
+}
+body {
+  margin: 0 auto;
+  padding: 0;
+  color: black;
+  background-color: #DDD;
+}
+div {
+  margin-top: 1%;
+}
+
+/* classes */
+.content {
+  padding: 1%;
+  text-align: center;
+}
+.containerZone{
+  margin: 0 auto;
+}
+.customContainer{
+  width:30%;
+  height : 10%;
+  border : 2px solid black;
+  margin: 0 auto;
+  margin-top:2%;
+}
+
+/* ID's from here on */
+#mover {
+  margin: 0 auto;
+  background-color: white;
+  height: auto;
+  width: auto;
+  text-align: center;
+}
+#mover p {
+  margin: 0 auto;
+}

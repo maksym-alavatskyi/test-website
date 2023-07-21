@@ -1,0 +1,48 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>LPV Test Page</title>
+		
+		<script type="text/javascript">
+			function ct()
+			{
+				var ClickTaleSSL=1;
+				if(typeof ClickTale=='function') ClickTale(26921,1,"qadump");
+			}
+			
+			function LPV()
+			{
+				ClickTaleFetchFrom="http://qa.test/LPV/.......";
+				ClickTaleLogical("LPV");
+			}
+		</script>	
+	</head>
+
+	<body>
+	<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<table>
+	<tr>
+		<td>
+			<button onclick="ct()">play CT</button>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button onclick="LPV()">play LPV</button>
+		</td>
+	</tr>
+</table>
+
+<script type="text/javascript">
+var ClickTaleSSL=1;
+if(typeof ClickTale=='function') ClickTale(26921,1,"qadump");
+</script>
+<!-- ClickTale end of Bottom part -->
+	
+	</body>
+</html>

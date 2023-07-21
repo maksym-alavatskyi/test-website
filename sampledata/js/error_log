@@ -1,0 +1,54 @@
+[17-Jan-2021 16:13:56 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:13:56 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:13:56 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:13:56 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:13:56 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 16:13:56 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 16:14:14 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:14:14 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:14:14 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:14:14 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:14:14 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 16:14:14 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 16:14:17 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:14:17 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:14:17 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:14:17 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:14:17 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 16:14:17 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 16:15:55 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:15:55 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 16:15:55 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:15:55 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 16:15:55 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 16:15:55 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 17:55:12 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 17:55:12 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 17:55:12 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 17:55:12 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 17:55:12 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 17:55:12 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 17:55:13 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 17:55:13 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 17:55:13 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 17:55:13 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 17:55:13 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 17:55:13 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 18:04:20 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 18:04:20 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 18:04:20 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 18:04:20 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 18:04:20 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 18:04:20 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 18:09:28 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 18:09:28 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 18:09:28 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 18:09:28 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 18:09:28 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 18:09:28 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 18:09:31 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 18:09:31 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 49
+[17-Jan-2021 18:09:31 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 18:09:31 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 128
+[17-Jan-2021 18:09:31 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134
+[17-Jan-2021 18:09:31 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/js/jserror.php on line 134

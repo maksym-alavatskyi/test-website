@@ -1,0 +1,80 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>LPV Test Page</title>
+		
+		<script type="text/javascript">
+			function ct()
+			{
+				var ClickTaleSSL=1;
+				if(typeof ClickTale=='function') ClickTale(26921,1,"qadump");
+				ClickTaleTag("CT");
+			}
+			
+			function stop()
+			{
+				ClickTaleTag("stopping");
+				ClickTaleStop();
+			}
+			function LPV()
+			{
+				ClickTaleStop();
+				ClickTaleFetchFrom="http://qa.test/LPV/LPV_Main.html";
+				ClickTaleLogical("http://qa.test/LPV/LPV_Main.html");
+				ClickTaleTag("LPV");
+			}
+			function LPV_Passthrough()
+			{
+				ClickTaleStop();
+				ClickTaleFetchFrom="http://qa.test/LPV/LPV_Main.html";
+				ClickTaleLogical("http://qa.test/LPV/LPV_Main.html",true);
+				ClickTaleTag("LPV_passthrough");
+			}
+
+			</script>	
+	</head>
+
+	<body>
+	<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+<table align="right" height="100%" width="50%" border="solid">
+	<tr>
+		<td>
+			<button onclick="ct()">play CT</button>
+			<button onclick="stop()">Stop</button>
+			<br>
+		<form name="frm1" id= "frm1">
+			<input type="text"><br>
+			<input type="radio" name="sex" value="male">Male<br>
+			<input type="radio" name="sex" value="female">Female<br>
+			<input type="radio" name="sex" value="female">undefined<br>
+			<textarea rows="4" cols="50"></textarea>
+		</form>
+
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<button onclick="LPV()">play LPV</button>
+			<button onclick="LPV_Passthrough()">play LPV_passthrough</button>
+			<br>
+		<form name="frm2" id= "frm2">
+			<input type="text"><br>
+			<input type="radio" name="sex" value="male">Male<br>
+			<input type="radio" name="sex" value="female">Female<br>
+			<input type="radio" name="sex" value="female">undefined<br>
+			<textarea rows="4" cols="50"></textarea>
+		</form>
+
+		</td>
+	</tr>
+</table>
+		
+<div id="ClickTaleDiv" style="display: none;"></div>
+	
+</body>
+</html>

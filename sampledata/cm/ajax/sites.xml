@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+ <sites>
+   <site id="0">
+     <title>google</title>
+	<url>http://www.google.com</url>
+     <desc>
+       <brief>google search engine</brief>
+       <long>use to search the internet</long>
+     </desc>
+   </site>
+   <site id="2">
+     <title>clicktale</title>
+	<url>http://www.clicktale.com</url>
+     <desc>
+       <brief>clicktale homepage</brief>
+       <long>ClickTale is the industry leader in Customer Experience Analytics (CEA), providing businesses with revolutionary insights into their customers' online behavior. Over 70,000 businesses rely on ClickTale to optimize website performance, improve usability and dramatically increase conversion rates. ClickTale tracks every mouse move, click and scroll, creating playable videos of customers' entire browsing sessions as well as powerful visual heatmaps and behavioral reports that perfectly complement traditional web analytics. As a fully hosted subscription service, ClickTale is cost-effective and quick to set up.</long>
+     </desc>
+   </site>
+   <site id="3">
+     <title>jQuery</title>
+	<url>http://www.jquery.com</url>
+     <desc>
+       <brief>JS library</brief>
+       <long>jQuery is a fast and concise JavaScript Library that simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development. jQuery is designed to change the way that you write JavaScript.</long>
+     </desc>
+   </site>
+ </sites>

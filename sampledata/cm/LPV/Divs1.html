@@ -1,0 +1,111 @@
+<DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<title>div change, local content</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"> </script>
+	<script type="text/javascript" src="div.js"> </script>
+	<style type="text/css">
+	/* DivContainer */
+	#DivContainer {
+		position:absolute;
+		left:250px;
+		top:100px;
+		font-size:25px;
+	}
+
+	/* DivButton */
+	#DivButton { 
+		width:100px; 
+		height:100px;
+		display:inline-block;
+		float:right;
+		background:#d2e0ea; 
+		border:1px solid #899caa; 
+		border-radius:3px;
+		-moz-border-radius:3px;
+		position:relative;
+		z-index:30;
+		cursor:pointer;
+	}
+
+	/* DivButton Text */
+	#DivButton span {
+		color:#445058; 
+		font-size:14px; 
+		font-weight:bold; 
+		text-shadow:1px 1px #fff; 
+		padding:7px 29px 9px 10px;
+		display:block
+	}
+
+	/* DivBox */
+	#DivBox {
+		position:absolute;
+		top:34px;
+		right:0;
+		display:none;
+		z-index:29;
+	}
+
+	#InnerDiv {
+		width:500px; 
+		height:400px;
+		border:1px solid #899caa;
+		border-radius:3px 0 3px 3px;
+		-moz-border-radius:3px 0 3px 3px;
+		margin-top:-1px;
+		background:#d2e0ea;
+		padding:6px !important;
+			display:block !important;
+			
+		position:absolute;
+		left:450px;
+		top:1800px;
+		font-size:25px;
+	
+	}
+
+
+	</style>
+	</head>
+
+	<body>
+	<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+		<div id="DivContainer">
+		<a href="#" id="DivButton"><span> Click here </span></a>
+			<div style="clear:both"></div>
+			<div id="DivBox">
+				<div id="InnerDiv">
+					<b>step 1</b>
+					<form id="frmStep1" name="frmStep1">
+						<input type="text"></input>
+						<textarea rows="4" cols="50"></textarea>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+
+
+
+
+
+		
+		
+	<!-- ClickTale Bottom part -->
+<div id="ClickTaleDiv" style="display: none;"></div>
+
+
+<script type="text/javascript">
+var ClickTaleSSL=1;
+if(typeof ClickTale=='function') ClickTale(26921,1,"qadump");
+</script>
+<!-- ClickTale end of Bottom part -->
+	
+	</body>
+</html>

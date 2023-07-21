@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Basic carousel - jCarousel Examples</title>
+        <script type='text/javascript'>
+            // enable XHR wrapper / ChangeMonitor
+            window.ClickTaleSettings = { XHRWrapper: { Enable: false}  };
+            </script>
+            <script type="text/javascript">
+
+            // jQuery version control
+            function submitform() {
+                var vers = document.form.search.options[document.form.search.selectedIndex].value;
+                var provid = document.form.selectProvider.options[document.form.selectProvider.selectedIndex].value;
+                if (!vers) {
+                    document.location.href = "scope3.html?ver=" + ver + "&provider=" + provid;
+                } else {
+                    document.location.href = "scope3.html?ver=" + vers + "&provider=" + prov;
+
+                }
+            }
+            // get ver from url 
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                    vars[key] = value;
+                });
+                return vars;
+            }
+            mode = getUrlVars()["mode"];
+            if (mode != "id") {
+                mode = "path"
+            }
+            ver = getUrlVars()["ver"];
+            if (!ver) {
+                ver = "1.7.2"
+            }
+            prov = getUrlVars()["provider"];
+            if (!prov) 
+                prov = 'auto';
+            else 
+                if (prov != 'events' && prov != 'observers' && prov != 'jQuery' && prov !='auto') {
+                    alert('invalid ChangeMonitor provider. \nprovider will be selected automatically'); 
+                    prov = 'auto';
+                }
+            /*if (prov == 'events' || prov == 'observers' || prov == 'jQuery') {
+                window.ClickTaleSettings.ChangeMonitor.Provider = prov;
+            }
+            else {
+                if (prov) { 
+                    alert('invalid ChangeMonitor provider. \nprovider will be selected automatically');                 
+                    document.location.href = "scope3.html?ver=" + ver;
+                    
+                }
+                prov = 'auto';
+            }*/
+            
+            </script>
+            <script type="text/javascript">
+            // get version from jQuery servers
+            document.write('<script type="text/javascript" src="http://code.jquery.com/jquery-' + ver + '.js" >');
+            document.write('<\/script>');
+            </script>
+
+        <!-- Shared assets -->
+        <link rel="stylesheet" type="text/css" href="../_shared/css/style.css">
+
+        <!-- Example assets -->
+        <link rel="stylesheet" type="text/css" href="jcarousel.basic.css">
+
+        <script type="text/javascript" src="../../libs/jquery/jquery.js"></script>
+        <script type="text/javascript" src="../../dist/jquery.jcarousel.min.js"></script>
+
+        <script type="text/javascript" src="jcarousel.basic.js"></script>
+
+    </head>
+    <body>
+<h4 id="recVer">recorder version: 14</h4>
+    
+    <div align="center">
+        <form name="form">
+            <select name="search" id="selectVersion" onchange="submitform(this.form)">
+                <option value="">
+                    jQuery current version:
+                    <script type="text/javascript">
+                        document.write(ver);
+                    </script>
+                </option>
+                <option value="1.4">&nbsp;&nbsp;-&nbsp;1.4&nbsp;-&nbsp;&nbsp;</option>
+                <option value="1.5">&nbsp;&nbsp;-&nbsp;1.5&nbsp;-&nbsp;&nbsp;</option>
+                <option value="1.6">&nbsp;&nbsp;-&nbsp;1.6&nbsp;-&nbsp;&nbsp;</option>
+                <option value="1.7.2">&nbsp;&nbsp;-&nbsp;1.7.2&nbsp;-&nbsp;&nbsp;</option>
+                <option value="1.8.3">&nbsp;&nbsp;-&nbsp;1.8.3&nbsp;-&nbsp;&nbsp;</option>
+            </select>
+            <select name="selectProvider" id="selectProvider" onchange="submitform(this.form)">
+                <option value="">&nbsp;&nbsp;-&nbsp;SELECT&nbsp;-&nbsp;&nbsp;</option>
+                <option value="">&nbsp;&nbsp;-&nbsp;auto&nbsp;-&nbsp;&nbsp;</option>
+                <option value="observers">&nbsp;&nbsp;-&nbsp;observers&nbsp;-&nbsp;&nbsp;</option>
+                <option value="events">&nbsp;&nbsp;-&nbsp;events&nbsp;-&nbsp;&nbsp;</option>
+                <option value="jQuery">&nbsp;&nbsp;-&nbsp;jQuery&nbsp;-&nbsp;&nbsp;</option>
+
+            </select>
+            selected provider: <span id="provider"></span>
+        </form>
+    </div>
+        <div class="wrapper">
+            <h1>Basic carousel</h1>
+
+            <p>This example shows how to setup a basic carousel with prev/next controls and pagination.</p>
+
+            <div class="jcarousel-wrapper">
+                <div class="jcarousel">
+                    <ul>
+                        <li><img src="../_shared/img/img1.jpg" width="600" height="400" alt=""></li>
+                        <li><img src="../_shared/img/img2.jpg" width="600" height="400" alt=""></li>
+                        <li><img src="../_shared/img/img3.jpg" width="600" height="400" alt=""></li>
+                        <li><img src="../_shared/img/img4.jpg" width="600" height="400" alt=""></li>
+                        <li><img src="../_shared/img/img5.jpg" width="600" height="400" alt=""></li>
+                        <li><img src="../_shared/img/img6.jpg" width="600" height="400" alt=""></li>
+                    </ul>
+                </div>
+
+                <p class="photo-credits">
+                    Photos by <a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
+                </p>
+
+                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                
+                <p class="jcarousel-pagination">
+                    
+                </p>
+            </div>
+        </div>
+<!--<script type='text/javascript'>
+    setTimeout(function(){
+        if (ClickTaleGlobal.changeMonitor && ClickTaleGlobal.changeMonitor.observer) {
+            jQuery('#provider').html("<font color='green'>" + ClickTaleGlobal.changeMonitor.observer + " provider has been found!</font>");
+        }
+        else{
+            jQuery('#provider').html("<font color='red'>Error: no matching provider has been found!</font>");
+        }
+    }, 1000);
+
+    </script>--> 
+    <!-- ClickTale Bottom part -->
+
+    <script type='text/javascript'>
+
+    document.write(unescape("%3Cscript%20src='"+
+        (document.location.protocol=='https:'?
+            "https://ct.test/ctn/ptc/0d4e8474-e0b8-4675-8665-103830ba8dd3.js?PTCXHTMLCompliant=False&WRDestination=qadump&WRScriptHost=ct.test/ctn":
+            "http://ct.test/ctn/ptc/0d4e8474-e0b8-4675-8665-103830ba8dd3.js?PTCXHTMLCompliant=False&WRDestination=qadump&WRScriptHost=ct.test/ctn")+"'%20type='text/javascript'%3E%3C/script%3E"));
+    </script>
+
+    <script type="text/javascript"> 
+   
+    window.ClickTaleSettings = window.ClickTaleSettings || {};
+    window.ClickTaleSettings.ChangeMonitor = {
+        Enable: true,
+       // AddressingMode: mode,
+        Filters : {
+            MaxElementCount : 1000,
+            MaxBufferSize : 10000000,
+            OptimizeAnimations : "jQuery",
+            Before : [],
+            After : [function(node, sesseionID, operation){
+                return true;
+            }] 
+        },
+        Providers: [prov],
+        OnReadyHandler: function (changeMonitor) {
+
+         //include:
+         changeMonitor.observe();  
+         
+
+          //exclude:
+
+          changeMonitor.exclude(".ex"); 
+
+
+        },
+        OnBeforeReadyHandler: function (settings) {
+            settings.Enable = window.ClickTaleGetUID ? !!ClickTaleGetUID() : false;
+            return settings;
+        }
+    };
+    </script>
+    
+    <!-- ClickTale end of Bottom part -->
+    <script type='text/javascript'>
+
+    </script>
+    <script type='text/javascript'>
+    var CMVer = ClickTaleGlobal.exports.changeMonitor.version;
+    var RecVer = ClickTaleGetVersion()[0] + "." + ClickTaleGetVersion()[1];
+    var AMode = "id" // ClickTaleSettings.ChangeMonitor.AddressingMode ? ClickTaleSettings.ChangeMonitor.AddressingMode : "path";
+    setTimeout(function () {
+        if (ClickTaleGlobal.exports.changeMonitor && ClickTaleGlobal.exports.changeMonitor.observer) {
+            jQuery('#provider').html("<font color='green'>" + ClickTaleGlobal.exports.changeMonitor.observer + " provider has been found!</font>");
+        }
+        else {
+            jQuery('#provider').html("<font color='red'>Error: no matching provider has been found!</font>");
+        }
+    }, 2000);
+    jQuery('#recVer').html("Recorder: " + RecVer + " /// CM version: " + CMVer + " /// Addressing Mode: " + AMode);
+    </script>
+    </body>
+</html>

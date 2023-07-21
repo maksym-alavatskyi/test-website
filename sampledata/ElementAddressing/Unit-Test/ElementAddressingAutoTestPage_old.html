@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title> 
+        <link rel="shortcut icon" type="image/png" href="../jasmine/lib/jasmine-2.0.0/jasmine_favicon.png">
+        <link rel="stylesheet" type="text/css" href="../jasmine/lib/jasmine-2.0.0/jasmine.css">
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/jasmine.js"></script>
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/jasmine-html.js"></script>
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/boot.js"></script>
+        <script src="//code.jquery.com/jquery-latest.min.js"></script>
+        <script src="../build/ElementAddressing.js"></script>
+        <script type="text/javascript">
+            ct.ElementAddressing.bootstrap(window);
+        </script>
+    </head>
+<body id="bodyId" name="bodyName">
+    <div id="div1Id" name="div1Name">
+        <br />
+        Element Addressing Auto Test Page
+        <br />
+        <br />
+        <br />
+        <div id="div11Id" name="div11Name">
+            <fieldset name="fieldSet1Name" id="fieldSet1Id">
+                <legend name="legend1Name" id="legend1Id">Case 1: Standard XPath; Unique Ids (custom and element)</legend>
+                <p id="p2hiddenId" hidden name="hiddenParagraphName"></p>
+
+                TextArea:
+                <br />
+                <textarea rows="4" cols="50" id="textArea1" name="txtArea1Name">
+                    this is a text area 1 for testing
+                </textarea>
+                <textarea rows="4" cols="50" id="textArea2" name="txtArea2Name">
+                    this is a text area 2 for testing
+                </textarea>
+                <textarea rows="4" cols="50" id="textArea3" name="txtArea3Name">
+                    this is a text area 3 for testing
+                </textarea>
+                <br />
+
+                Input Elements:
+                <br />
+                <input type="text" id="txt1" name="Name txt1" value="AAAAA" />
+                <input type="text" id="txt2" name="Name txt2" value="BBBBB" />
+                <input type="text" id="txt3" name="Name txt3" value="CCCCC" />
+                <select id="testSelection1Id" name="testSelection1Name">
+                    <option value="sel1">1</option>
+                    <option value="sel2">2</option>
+                    <option value="sel3">3</option>
+                </select>
+                <select id="testSelection10Id" name="testSelection10Name">
+                    <option value="sel1">11</option>
+                    <option value="sel2">22</option>
+                    <option value="sel3">33</option>
+                </select>
+                <select id="testSelection100Id" name="testSelection10Name">
+                    <option value="sel1">111</option>
+                    <option value="sel2">222</option>
+                    <option value="sel3">333</option>
+                </select>
+                <br />
+                <br />
+                Please select Element:
+                <br />
+                <select id="elementSelction1Id" name="selectionName"></select>
+                <button onclick="btnClick()" id="btn1Id" name="dumpPathBtnName">Dump XPath by element</button>
+                <br/>
+                Refer Hidden Elements:
+                <select id="referHiddenSelector222Id" name="referHiddenSelector222Name">
+                    <option value="sel1">true</option>
+                    <option value="sel1">false</option>
+                </select>
+            </fieldset>
+            <br />
+            <br />
+            <div id="hiddendiv111Id" name="hiddendiv111Name" style="visibility:hidden;">
+                <input type="text" id="hiddeninputtxt111Id" name="hiddeninputtxt111Name" value="AAAAA" style="visibility:hidden;" />
+                <input type="text" id="txt2inHiddenSectionId" name="txt2inHiddenSectionName" value="BBBBB" />
+                <select id="hiddenSelector333Id" name="hiddenSelector333Name" style="visibility:hidden;">
+                    <option value=" hiddensel1">aaaa</option>
+                    <option value="hiddensel2">bbb</option>
+
+                </select>
+            </div>
+        </div>
+        <button onclick="TestPathFromElementAndReverse()" id="btn2Id" name="calcNretrieveElementXpathBtnName">Calc And Retrieve XPath by element</button>
+    </div>
+    <br />
+    <br />
+    
+    
+    <script>
+        function btnClick() {
+            var e = document.getElementById("elementSelction1Id");
+            return calcPathFromElement(document.getElementById(e.options[e.selectedIndex].text));
+        }
+
+        function TestPathFromElementAndReverse(includeHidden) {
+            var e = document.getElementById("elementSelction1Id");
+            var element = document.getElementById(e.options[e.selectedIndex].text);
+            var elementXpath = pathFromElementTest(element);
+            var isVisibleElement = !(window.getComputedStyle(element, null).visibility.toLowerCase() === 'hidden');
+            
+
+            var e1 = document.getElementById('referHiddenSelector222Id');
+            var includeHidden = (e1.selectedIndex === 0) ? true : false; 
+
+            var retrievedElement = GetElementFromPathTest(elementXpath, includeHidden);
+
+            var elementVisibilityDef = GetElementVisibilityFromPath(elementXpath);
+
+            var elementVisibiltyResult = ((!elementVisibilityDef.isHidden === isVisibleElement) && (elementVisibilityDef.dom === element));
+
+            if ((!includeHidden) && (!isVisibleElement)) {
+                return (elementVisibiltyResult && (retrievedElement === null));
+            }
+            else {
+                return (elementVisibiltyResult && (retrievedElement === element));
+            }
+        }
+
+        function calcPathFromElement(element) {
+            var xpath = ct.ElementAddressing.pathFromElement(element, document.getElementById('bodyId'));
+            return xpath;
+        }
+
+        function GetElementFromPathTest(path, includeHidden) {
+            var elem = ct.ElementAddressing.elementFromPath(path, document.getElementById('bodyId'), includeHidden);
+
+            return elem;
+        }
+
+        function GetElementVisibilityFromPath(path) {
+            var result = ct.ElementAddressing.elementAndVisibilityFromPath(path, document.getElementById('bodyId'));
+            return result;
+        }
+
+        function pathFromElementTest(element) {
+            var baseElement = document.getElementById("bodyId");
+            var xpath = ct.ElementAddressing.pathFromElement(element, baseElement);
+            return xpath;
+        }
+
+        function GetRecursiveSiblingList(element) {
+            var elementsArray = [];
+            elementsArray.push(element);
+
+            if (element.childNodes.length <= 0) {
+                return elementsArray;
+            }
+
+            for (var child = element.firstChild; child; child = child.nextSibling) {
+                if (child.nodeType === 1)
+                    elementsArray = elementsArray.concat(GetRecursiveSiblingList(child));
+            }
+
+            return elementsArray;
+        }
+
+        var rootSiblings = GetRecursiveSiblingList(document.getElementById('bodyId'));
+        for (var i = 0; i < rootSiblings.length; ++i) {
+            ct.ElementAddressing.setCustomElementID(rootSiblings[i], rootSiblings[i].nodeName + i + 'CustomId');
+        }
+        var selctionElem = document.getElementById('elementSelction1Id');
+        for (var i = 0; i < rootSiblings.length; ++i) {
+            if ((rootSiblings[i].nodeName != 'undefined') && (rootSiblings[i].nodeName != '')) {
+                var opt = document.createElement('option');
+                opt.innerHTML = rootSiblings[i].id;
+                opt.value = rootSiblings[i].nodeName;
+                selctionElem.appendChild(opt);
+            }
+        }        
+        var testResult = false;
+
+        describe("Element Addressing Auto Test", function () {
+            it("Go over all elements & calc addressing", function () {
+                for (var i = 1; i < selctionElem.options.length; ++i) {
+                    if (selctionElem.options[i].text != '') {
+                        selctionElem.selectedIndex = i;
+                        testResult = TestPathFromElementAndReverse(false) && TestPathFromElementAndReverse(true);
+                        if (!testResult) {
+                            expect(testResult).toBeTruthy();
+                            break;
+                        }
+                    }
+                    else {
+                        continue;
+                    }                        
+                }
+                expect(testResult).toBeTruthy();
+            });
+        });
+        
+    </script>
+</body>
+</html>

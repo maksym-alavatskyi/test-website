@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Grid for mobile test</title>
+<style type="text/css">
+	table
+	{
+	border-collapse:collapse;
+	}
+	table, td, th, td 
+	{
+	border:3px solid black;
+	background-color:orange;
+	color:yellow;
+	width:1500px;
+	height:450px;
+	font-size: 35px;
+	text-align: center;
+
+</style>
+
+
+</head>
+<body>
+
+
+<!-- ClickTale Top part -->
+<script type="text/javascript">
+var WRInitTime=(new Date()).getTime();
+</script>
+<!-- ClickTale end of Top part -->
+
+
+<script type="text/javascript">
+id=1;
+color='red';
+function change() {if(typeof ClickTaleExec=='function')
+		    ClickTaleExec("change()");
+	document.getElementById(id).style.backgroundColor = color; 
+	}
+
+</script>
+<script type="text/javascript" src="script2.js"></script>
+
+	<table id="tbl1">
+		<tr>   
+		<td id=1> 1 <a href="#" onmouseover="id=1;color='red';change();">Highlight cell</a> </td>
+		<td>2 <input type="button" onClick="throw new Error('txt');"/> jsError inline</td>
+		<td> <input type="button"  onmouseover="DDDDDDDDDDDDDD();" width=200/>bed_inline</td>
+		<td><input type="button"  onmouseover="problem();" width=300 height="300"/>problem_JS</td>
+		<td><input type="button"  onmouseover="good();" width=300 height="300"/>goodFunc_JS</td>
+		<td>6</td>
+		</tr>
+		<tr>
+		<td><input type="button"  onmouseover="y();" width=200/></td>
+		<td>8</td>
+		<td><a href="http://192.168.186.201:8080/TestingTFH/index.html"> tfh </a> </td>
+		<td>10</td>
+		<td> <form action="Grid3.html" id="frm1"> name:<input type="text" id="txt1" value="value from server"/> <BR> phone:<input type="text" id="txt2"/> <BR><input type="submit">  </form>  </td>
+		<td>12</td>
+		</tr>
+
+	</table>
+
+
+<!-- ClickTale Bottom part -->
+<div id="ClickTaleDiv" style="display: none;"></div>
+<script type="text/javascript">
+if(document.location.protocol!='https:')
+  document.write(unescape("%3Cscript%20src='http://s.clicktale.net/WRd7.js'%20type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+if(typeof ClickTale=='function') ClickTale(26921,1,"qadump");
+</script>
+<!-- ClickTale end of Bottom part -->
+
+
+
+</body>
+</html>

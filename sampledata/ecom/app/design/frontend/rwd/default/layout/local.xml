@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="product.info">
+            <!--block type="core/template" name="size_chart_tab" as="size_chart_tab" template="catalog/product/view/sizeChartTab.phtml">
+				<action method="addToParentGroup"><group>detailed_info</group></action>
+				<action method="setTitle" translate="value"><value>More</value></action>
+			</block-->
+        </reference>
+    </catalog_product_view>
+</layout>

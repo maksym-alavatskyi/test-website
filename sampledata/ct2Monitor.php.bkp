@@ -1,0 +1,167 @@
+<!-- ct2 monitor included -->
+<?php 
+		if($subdomain == "ct2-test") {
+			$monitorUrl =  "https://auto-node-9:8080/monitor";
+			$myId = "9999";
+		/*} else if($myPartitonId == "unstable") {
+			$monitorUrl =  "https://unstable-elboru2e-30mbslrurrnb-746476484.us-west-2.elb.amazonaws.com/monitor";*/
+        } else if($myPartitonId == "integration") {
+            $monitorUrl =  "https://conductor-i.clicktale.net/monitor";
+        } else if($myPartitonId == "stage") {
+			$monitorUrl =  "https://conductor-s.clicktale.net/monitor";
+		} else if($myPartitonId == "prod") {
+			$monitorUrl =  "https://conductor.clicktale.net/monitor";
+		} else {
+			$monitorUrl = "Please set PartitonId";
+		}
+		
+		
+?>	
+	
+	<script>
+	console.log("monitor params: [Id: <?=$myId?> | Env: <?=$myPartitonId?> | Endpoint: <?=$monitorUrl?>]");
+      // -------- this code will be in the ptc in the future
+
+        !function () {
+            function ClickTaleMonitorSettings() {
+                this.stopCallbacks = [];
+                this.readyCallbacks = [];
+                this.startCallbacks = [];
+            }
+
+            ClickTaleMonitorSettings.onReady = function () {
+                if (ClickTaleMonitorSettings.instance) {
+                    ClickTaleMonitorSettings.instance.readyCallbacks.forEach(function (callback) { callback(); });
+                }
+
+                var monitor = new ClickTaleMonitor.App(<?=$myId?>, function (monitor) {
+                    var instance = ClickTaleMonitorSettings.instance;
+
+                    if (instance) {
+                        instance.addAplication(monitor);
+                        instance.startCallbacks.forEach(function (callback) {
+                            callback();
+                        });
+                    }
+                });
+
+                monitor.onStop(function (monitor) {
+                    if (ClickTaleMonitorSettings.instance) {
+                        ClickTaleMonitorSettings.instance.stopCallbacks.forEach(function (callback) {
+                            callback();
+                        });
+
+                        ClickTaleMonitorSettings.instance = void 0;
+                    }
+                });
+            };
+
+            ClickTaleMonitorSettings.prototype.addAplication = function (monitor) {
+                this.monitor = monitor;
+            };
+
+            ClickTaleMonitorSettings.prototype.configure = function (config) {
+                this.config = config;
+            };
+
+            ClickTaleMonitorSettings.prototype.onStart = function (callback) {
+                if (this.monitor && this.monitor.isMonitoring()) {
+                    callback();
+                }
+                else {
+                    this.startCallbacks.push(callback);
+                }
+            };
+
+            ClickTaleMonitorSettings.prototype.onStop = function (callback) {
+                this.stopCallbacks.push(callback);
+            };
+
+            ClickTaleMonitorSettings.prototype.onReady = function (callback) {
+                this.readyCallbacks.push(callback);
+            };
+
+
+            ClickTaleMonitorSettings.get = function () {
+                return ClickTaleMonitorSettings.instance || (ClickTaleMonitorSettings.instance = new ClickTaleMonitorSettings());
+            };
+
+            Object.defineProperty(ClickTaleMonitorSettings, "config", {
+                get: function () {
+                    if (ClickTaleMonitorSettings.instance) {
+                        return ClickTaleMonitorSettings.instance.config;
+                    }
+
+                    return null;
+                },
+                enumerable: true,
+                configurable: true
+            });
+
+            function createElement(elem) {
+                if (document.documentElement.namespaceURI) {
+                    try {
+                        return document.createElementNS("http://www.w3.org/1999/xhtml", elem);
+                    }
+                    catch (e) {
+                    }
+                }
+
+                return document.createElement(elem);
+            }
+
+            function createMonitorScript() {
+                var script = createElement("script");
+                script.src = "/monitor/monitor-1.0.0.js"; // <- change this path
+                script.type = "text/javascript";
+                script.async = true;
+                (document.body || document.head).appendChild(script);
+            }
+
+            function invokeMonitor(fn, args) {
+                var instance = ClickTaleMonitorSettings.instance;
+
+                if (instance && instance.monitor) {
+                    instance.monitor[fn].apply(instance.monitor, args);
+                }
+            }
+
+            window.ClickTaleMonitor = {
+                stop : function () {
+                    invokeMonitor("dispose");
+                },
+                addEvent: function (eventId) {
+                    invokeMonitor("addEvent", [eventId]);
+                },
+                Settings: ClickTaleMonitorSettings
+            }
+            createMonitorScript();
+        }();
+
+	// --------- this is where settings begin
+
+        var settings = ClickTaleMonitor.Settings.get();
+
+        settings.configure({
+            transport: {
+                url: "<?=$monitorUrl?>"  // <- change this path
+            },
+		   identification: {
+				  visitTimeSpan: 90000 //time in milisecodns
+		   }
+        });
+
+        settings.onReady(function () {
+            console.log("ready");
+        });
+
+        settings.onStart(function () {
+            console.log("onStart");
+        });
+
+        settings.onStop(function () {
+            console.log("onStop");
+        });
+    </script>
+	
+	<script src="/monitor/ve.js"></script>

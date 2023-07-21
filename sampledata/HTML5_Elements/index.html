@@ -1,0 +1,197 @@
+<html>
+
+<head>
+    <title>HTML 5.0 FORMS</title>
+
+
+    <!-- STYLIGN IMPORTS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Voces' rel='stylesheet' type='text/css'>
+
+
+
+    <!-- SCRIPTING IMPORTS -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+    <!-- ClickTale Top part -->
+    <script type="text/javascript">
+        var WRInitTime = (new Date()).getTime();
+    </script>
+    <!-- ClickTale end of Top part -->
+
+
+    <div ng-app="">
+        <header>
+            <div class="title">
+                <h1>HTML 5.0 FORMS</h1>
+            </div>
+        </header>
+        <br /><br /><br />
+        <nav>
+            <ul class="navBar">
+                <li>ONE</li>
+                <li>TWO</li>
+                <li>THREE</li>
+                <li>FOUR</li>
+                <li>FIVE</li>
+            </ul>
+        </nav>
+<br /><br /><br /><br />
+        <!-- PAGE STARTS HERE -->
+
+        <section>
+            <form action="some-page">
+                <table>
+                    <th colspan="7">INPUTS AND TYPES</th>
+                    <tr>
+                        <td>
+                            TEXT
+                            <br/>
+                            <input type="text" placeholder="" />
+                        </td>
+                        <td>
+                            Color - val is {{cVal}}
+                            <br/>
+                            <input type="color" placeholder="" ng-model="cVal" />
+                        </td>
+                        <td>
+                            date
+                            <br/>
+                            <input type="date" placeholder="" />
+                        </td>
+                        <td>
+                            datetime-local
+                            <br/>
+                            <input type="datetime-local" placeholder="" />
+                        </td>
+                        <td>
+                            email
+                            <br/>
+                            <input type="email" placeholder="" />
+                        </td>
+                        <td>
+                            month
+                            <br/>
+                            <input type="month" placeholder="" />
+                        </td>
+                        <td>
+                            number
+                            <br/>
+                            <input type="number" placeholder="" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            range - val is {{rVal}}
+                            <br/>
+                            <input type="range" placeholder="" ng-model="rVal" />
+                        </td>
+                        <td>
+                            search
+                            <br/>
+                            <input type="search" placeholder="" />
+                        </td>
+                        <td>
+                            tel
+                            <br/>
+                            <input type="tel" placeholder="" />
+                        </td>
+                        <td>
+                            time
+                            <br/>
+                            <input type="time" placeholder="" />
+                        </td>
+                        <td>
+                            url
+                            <br/>
+                            <input type="url" placeholder="" />
+                        </td>
+                        <td>
+                            week
+                            <br/>
+                            <input type="week" placeholder="" />
+                        </td>
+                        <td>regular input
+                            <br/>
+                            <input type="text" placeholder="" />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <th colspan="7">
+                            <input type="submit">
+                        </th>
+                    </tr>
+                </table>
+
+            </form>
+        </section>
+
+
+    </div>
+
+
+
+
+
+    <!-- ClickTale Bottom part -->
+
+    <script type="text/javascript" src="http://qa.test/test/WRe18c.js"></script>
+    <textarea id="ClickTaleDebugDump" rows="5" cols="80" style="position: absolute; left:10px; top:10px; border: solid #6C358D;"></textarea>
+    <script type="text/javascript">
+        ClickTaleUploadPage('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">', '</html>');
+        if (typeof ClickTale == 'function')
+            ClickTale(26964, 1, "qadump");
+
+        var add = getUrlVars()["addressing"]
+         window.ClickTaleSettings = window.ClickTaleSettings || {};
+        window.ClickTaleSettings.Compression = {
+            Method: "deflate"
+        };
+        window.ClickTaleSettings.ChangeMonitor = {
+            Enable: true,
+            AddressingMode: "id",
+            Providers: [prov],
+            Filters: {
+                MaxElementCount: 200,
+                MaxBufferSize: 5000000,
+                Before: [
+
+                    function(buffer, sesseionID, operation) {
+                        //console.log("buffer size: "+buffer.sa.length);
+                        //$('#buflog').prepend(buffer.sa.length+"<br>");
+                        return true;
+                    }
+                ]
+            },
+            OnReadyHandler: function(changeMonitor) {
+                changeMonitor.observe();
+
+                /*
+                if  (typeof changeMonitor.observer == 'string') {
+                    jQuery('#provider').html(changeMonitor.observer);
+                }
+                */
+
+            },
+            OnBeforeReadyHandler: function(settings) {
+
+
+                settings.Enable = window.ClickTaleGetUID ? !! ClickTaleGetUID() : false;
+                return settings;
+            }
+        };
+    </script>
+    <!-- ClickTale end of Bottom part -->
+
+</body>
+
+
+
+</html>

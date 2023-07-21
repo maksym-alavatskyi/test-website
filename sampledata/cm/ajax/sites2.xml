@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+ <sites>
+   <site id="0">
+     <title>Bing</title>
+	<url>http://www.bing.com</url>
+     <desc>
+       <brief>Bing search engine</brief>
+       <long>use to search the internet</long>
+     </desc>
+   </site>
+   <site id="2">
+     <title>Blogger</title>
+	<url>http://www.blogger.com</url>
+     <desc>
+       <brief>Blogging service</brief>
+       <long>Free weblog publishing tool from Google, for sharing text, photos and video.</long>
+     </desc>
+   </site>
+   <site id="3">
+     <title>Wikipedia</title>
+	<url>http://www.wikipedia.com</url>
+     <desc>
+       <brief>Social encyclopedia</brief>
+       <long>Wikipedia, the free encyclopedia that anyone can edit.</long>
+     </desc>
+   </site>
+ </sites>

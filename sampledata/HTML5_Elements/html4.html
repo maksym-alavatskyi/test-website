@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>HTML4 FORM</title>
+    <style>
+        * {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ClickTale Top part -->
+    <script type="text/javascript">
+        var WRInitTime = (new Date()).getTime();
+    </script>
+    <!-- ClickTale end of Top part -->
+    <h1> HTML 4 PAGE</h1>
+    <section>
+        <form action="null">
+            Enter Name:
+            <input type="text" />
+            <br />Enter pass:
+            <input type="password" />
+            <br />Another Text Field:
+            <input type="text" />
+            <br/>THIS IS "TEL" FIELD
+            <input type="tel" style="background: yellow;"/>
+            <br />Enter Name SECOND!:
+            <input type="text" />
+            <br />
+            <input type="submit" value="CLICK ME" />
+            <br />
+
+            <textarea></textarea>
+
+        </form>
+    </section>
+
+
+    <!-- ClickTale Bottom part -->
+
+    <script type="text/javascript" src="http://qa.test/test/WRe18c.js"></script>
+    <textarea id="ClickTaleDebugDump" rows="5" cols="80" style="position: absolute; left:10px; top:10px; border: solid #6C358D;"></textarea>
+    <script type="text/javascript">
+        ClickTaleUploadPage('<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml">', '</html>');
+        if (typeof ClickTale == 'function')
+            ClickTale(26964, 1, "qadump");
+
+        var add = getUrlVars()["addressing"]
+         window.ClickTaleSettings = window.ClickTaleSettings || {};
+        window.ClickTaleSettings.Compression = {
+            Method: "deflate"
+        };
+        window.ClickTaleSettings.ChangeMonitor = {
+            Enable: true,
+            AddressingMode: "id",
+            Providers: [prov],
+            Filters: {
+                MaxElementCount: 200,
+                MaxBufferSize: 5000000,
+                Before: [
+
+                    function(buffer, sesseionID, operation) {
+                        //console.log("buffer size: "+buffer.sa.length);
+                        //$('#buflog').prepend(buffer.sa.length+"<br>");
+                        return true;
+                    }
+                ]
+            },
+            OnReadyHandler: function(changeMonitor) {
+                changeMonitor.observe();
+
+                /*
+                if  (typeof changeMonitor.observer == 'string') {
+                    jQuery('#provider').html(changeMonitor.observer);
+                }
+                */
+
+            },
+            OnBeforeReadyHandler: function(settings) {
+
+
+                settings.Enable = window.ClickTaleGetUID ? !! ClickTaleGetUID() : false;
+                return settings;
+            }
+        };
+    </script>
+    <!-- ClickTale end of Bottom part -->
+
+
+</body>
+
+
+
+
+
+</html>

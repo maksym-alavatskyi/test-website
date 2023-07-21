@@ -1,0 +1,93 @@
+body {
+    color: white;
+    left: 0;
+    background-color: rgb(43, 43, 43);
+    right: 0;
+}
+video#bgvid {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+}
+label {
+    color: purple;
+}
+nav {
+    height: 10%;
+    margin: auto;
+    align-items: center;
+    border: 2px solid white;
+}
+table {
+    margin: auto;
+}
+h1 {
+    font-family: fantasy;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    cursor: pointer;
+}
+a.topLinks {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 2vw;
+    float: left;
+    padding: 5px;
+}
+a.topLinks:hover {
+    border-bottom: 5px solid rgba(51, 204, 255, 1);
+    border-radius: 10px;
+}
+ul li {
+    display: inline-flex;
+    font-family: sans-serif;
+    margin: auto 0;
+}
+span#jq {
+    text-align: center;
+    font-style: italic;
+}
+div#reciever {
+    text-align: center;
+    color: black;
+    width: auto;
+    position: relative;
+    background-color: white;
+}
+div#method {
+    height: 100px;
+    position: fixed;
+    top: 500;
+    text-align: center;
+    width: 50%;
+    left: 480;
+    color: white;
+    background-color: rgba(138, 43, 226, 0.7);
+}
+div#loading {
+    position: absolute;
+    left: 900;
+    top:300;
+}
+span#methodUsed {
+    font-size: 60px
+}
+.container {
+    text-align: center;
+    width: 60%;
+    height: 70%;
+    margin: auto;
+    background-color: rgba(72, 72, 72, 0.4);
+}

@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(.*)\.ctqatest\.info
+RewriteCond %{REQUEST_URI}  ^/WordPress/(.*)
+RewriteRule ^(.*)$ http://www.ctqatest.info/WordPress/%2 [L,NC,QSA,P]

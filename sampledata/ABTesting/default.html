@@ -1,0 +1,48 @@
+<html>
+<link rel="stylesheet" type="text/css" href="/style.css" media="all" />
+<link rel="stylesheet" media="all" href="/style/type/folks.css" />
+
+<h1 id ="pageType">Default</h1>
+
+          
+                <!-- Begin Form -->
+                <div class="contact-left">
+                    <div id="contact-form">
+
+                        <!--begin:notice message block-->
+                        <div id="note"></div>
+                        <!--begin:notice message block-->
+
+                        <form id="form1" method="post" action="/action_page.php" onsubmit="">
+
+                            <div class="form-row">
+                                <span class="label">Name * (autofocus)</span>
+                                <input type="text" name="name" autofocus id="name">
+                            </div>
+							<BR><BR>
+                            <div class="form-row">
+                                <span class="label">E-Mail *</span>
+                                <input type="text" name="email" id="email">
+                            </div>
+							<BR><BR>
+                            <div class="form-row">
+                                <span class="label">URL&nbsp;&nbsp;&nbsp;</span>
+                                <input type="text" name="url" id="url">
+                            </div>
+							<BR><BR>
+                            <div class="form-row" id="tele">
+                                <a href="#"  id="login" onclick="document.getElementById('form1').submit();"> Login <span></span></a>&nbsp;&nbsp;&nbsp;
+                           
+								<a type="button" id="cancel">Cancel&nbsp;&nbsp;&nbsp</a>
+								<!--<div class="form-row">Forgot <a href="#">password?</a></div> -->
+							</div>
+							<!--
+                            <div class="form-row">
+                                <span class="label">Your comment *</span>
+                                <textarea name="comment"></textarea>
+                            </div> 
+							-->
+                   
+						 </form>
+				</div>	
+</html>

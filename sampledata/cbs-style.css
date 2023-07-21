@@ -1,0 +1,56 @@
+/*
+****************
+*=cbs form
+****************
+*/
+.form-col input{
+width: 242px;
+}
+.form input, .form select, .form textarea {
+font-size: 14px;
+border: solid 1px lightgrey;
+background: #eee;
+box-shadow: none;
+padding: 3px 8px;
+color: #333;
+}
+
+.form .form-field {
+min-height: 43px;
+position: relative;
+}
+
+.left {
+float: left!important;
+}
+
+.right {
+float: right!important;
+}
+
+.cbsform{
+	width:580px;
+}
+.form-col.dob-gender {
+margin: 7px 0 18px 0;
+}
+.form label {
+font-size: 11px;
+font-weight: bold;
+margin: 0 0 2px 0;
+display: block;
+height:auto!important;
+}
+
+.form select {
+padding: 5px 8px;
+}
+
+.form .form-col.dob-gender .gender {
+width: 258px;
+font-size: 14px;
+}
+
+ .form .form-field.state {
+margin: 0 0 0 5px;
+}

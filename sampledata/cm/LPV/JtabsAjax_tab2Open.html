@@ -1,0 +1,84 @@
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <title>jQuery UI Tabs - Content via Ajax</title>
+  <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link href="style.css" rel="stylesheet">
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs({
+      beforeLoad: function( event, ui ) {
+        //ClickTaleStop();
+      },
+	  load : function( event, ui ) {
+        //ClickTaleLogical("http://qa.test/LPV/JtabsAjax2.html");
+      }
+    });
+
+  });
+  </script>
+</head>
+<body>
+
+<!-- ClickTale Top part -->
+	<script type="text/javascript">
+	var WRInitTime=(new Date()).getTime();
+	</script>
+<!-- ClickTale end of Top part -->
+
+
+
+
+
+ 
+<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+  <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-1" aria-labelledby="ui-id-1" aria-selected="false"><a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1">Preloaded</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ui-tabs-1" aria-labelledby="ui-id-2" aria-selected="false"><a href="ajax/content1.html" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2">Tab 1</a></li>
+    <li class="ui-state-default ui-corner-top ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="ui-tabs-2" aria-labelledby="ui-id-3" aria-selected="true"><a href="ajax/content2.html" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3">Tab 2</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ui-tabs-3" aria-labelledby="ui-id-4" aria-selected="false"><a href="ajax/content3-slow.php" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-4">Tab 3 (slow)</a></li>
+    <li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="ui-tabs-4" aria-labelledby="ui-id-5" aria-selected="false"><a href="ajax/content4-broken.php" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-5">Tab 4 (broken)</a></li>
+  </ul>
+  <div id="tabs-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+		<br>
+		<form id="frm4" name="frm4">
+			<input type="text"><br>
+			<input type="radio" value="male" name="sex">Male<br>
+			<input type="radio" value="female" name="sex">Female<br>
+			<input type="radio" value="female" name="sex">undefined<br>
+			<textarea cols="50" rows="4"></textarea>
+		</form>
+
+  </div><div id="ui-tabs-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-live="polite" aria-labelledby="ui-id-2" role="tabpanel" style="display: none;" aria-expanded="false" aria-hidden="true"></div><div id="ui-tabs-2" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-live="polite" aria-labelledby="ui-id-3" role="tabpanel" style="display: block;" aria-expanded="true" aria-hidden="false">   <p>Ajax content 2</p>
+		<br>
+		<form id="frm5" name="frm5">
+			<input type="text"><br>
+			<input type="radio" value="male" name="sex">Male<br>
+			<input type="radio" value="female" name="sex">Female<br>
+			<input type="radio" value="female" name="sex">undefined<br>
+			<textarea cols="50" rows="4"></textarea>
+		</form>
+</div><div id="ui-tabs-3" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-live="polite" aria-labelledby="ui-id-4" role="tabpanel" style="display: none;" aria-expanded="false" aria-hidden="true"></div><div id="ui-tabs-4" class="ui-tabs-panel ui-widget-content ui-corner-bottom" aria-live="polite" aria-labelledby="ui-id-5" role="tabpanel" style="display: none;" aria-expanded="false" aria-hidden="true"></div>
+</div>
+ 
+ 
+ <!-- ClickTale Bottom part -->
+<div style="display: none;" id="ClickTaleDiv"><script src="http://s.clicktale.net/WRe1b.js"></script></div>
+<script type="text/javascript">
+document.write(unescape("%3Cscript%20src='"+
+ (document.location.protocol=='https:'?
+  'https://clicktalecdn.sslcs.cdngc.net/www/':
+  'http://s.clicktale.net/')+
+ "WRd.js'%20type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript" src="http://s.clicktale.net/WRd.js"></script>
+<script type="text/javascript">
+var ClickTaleSSL=1;
+ClickTaleFetchFrom="http://qa.test/LPV/divbox.html?ct=1";
+if(typeof ClickTale=='function') ClickTale(26921,1,"qadump");
+</script>
+<!-- ClickTale end of Bottom part -->
+
+
+</body></html>

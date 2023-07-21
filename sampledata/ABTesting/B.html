@@ -1,0 +1,71 @@
+<html>
+<link rel="stylesheet" type="text/css" href="/style.css" media="all" />
+<link rel="stylesheet" media="all" href="/style/type/folks.css" />
+
+<h1 id="pageType">B</h1>
+
+                    <div id="contact-form">
+
+                        <!--begin:notice message block-->
+                        <div id="note"></div>
+                        <!--begin:notice message block-->
+
+                        <form id="form1" method="post" action="/action_page.php" onsubmit="">
+
+                          
+                            <div class="form-row">
+                                <span class="label">E-Mail *</span>
+                                <input type="text" name="email" id="email">
+                            </div>
+							<BR><BR>
+							<div class="form-row">
+                                <span class="label">Name * (autofocus)</span>
+                                <input type="text" name="name" autofocus id="name">
+                            </div>
+							<BR><BR>
+                            <div class="form-row">
+                                <span class="label">URL&nbsp;&nbsp;&nbsp;</span>
+                                <input type="text" name="url" id="url">
+                            </div>
+							<BR><BR>
+                            <div class="form-row" id="tele">
+                                <a href="#" class="button light-brown" id="login" style="margin-left: 30px;margin-right: 30px;" onclick="document.getElementById('form1').submit();"> Login <span></span></a>&nbsp;&nbsp;&nbsp;
+                          
+								<a type="button" class="button light-blue" id="cancel"><span></span>Cancel&nbsp;&nbsp;&nbsp</a>
+								<!--<div class="form-row">Forgot <a href="#">password?</a></div> -->
+							</div>
+							<!--
+                            <div class="form-row">
+                                <span class="label">Your comment *</span>
+                                <textarea name="comment"></textarea>
+                            </div> 
+							-->
+                   
+						 </form>
+					</div>
+					<script>
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+					
+async function sendEvent(){
+    if(typeof ClickTaleMonitor !== "undefined"){
+        await sleep(2000);
+		ClickTaleMonitor.ctData({
+			"event": "abtest",
+			"vendor": "Test",
+			"experience": "B"
+		})
+		console.log("Event B should be be fired");
+    }
+    else{
+		console.log("Monitor was not loaded retrying");
+        setTimeout(sendEvent, 250);
+    }
+}
+
+sendEvent();
+
+</script>
+
+</html>

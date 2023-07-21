@@ -1,0 +1,8 @@
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(menu.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 31
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(): Failed opening 'menu.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 31
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(ABTesting/A.html): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 54
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(): Failed opening 'ABTesting/A.html' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 54
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(footer.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 73
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(): Failed opening 'footer.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 73
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(ct_bottom.php): failed to open stream: No such file or directory in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 82
+[06-Oct-2021 15:23:46 UTC] PHP Warning:  include(): Failed opening 'ct_bottom.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/ctqatestinfo/public_html/qa-portal/monitor/abTesting.php on line 82

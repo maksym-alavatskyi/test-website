@@ -1,0 +1,391 @@
+############################################
+## uncomment these lines for CGI mode
+## make sure to specify the correct cgi php binary file name
+## it might be /cgi-bin/php-cgi
+
+#    Action php5-cgi /cgi-bin/php5-cgi
+#    AddHandler php5-cgi .php
+
+############################################
+## GoDaddy specific options
+
+#   Options -MultiViews
+
+## you might also need to add this line to php.ini
+##     cgi.fix_pathinfo = 1
+## if it still doesn't work, rename php.ini to php5.ini
+
+############################################
+## this line is specific for 1and1 hosting
+
+    #AddType x-mapp-php5 .php
+    #AddHandler x-mapp-php5 .php
+
+############################################
+## default index file
+
+    DirectoryIndex index.php
+
+<IfModule mod_php5.c>
+
+############################################
+## adjust memory limit
+
+    php_value memory_limit 64M
+    #php_value memory_limit 256M
+    php_value max_execution_time 600
+
+############################################
+## disable magic quotes for php request vars
+
+    #php_flag magic_quotes_gpc off
+
+############################################
+## disable automatic session start
+## before autoload was initialized
+
+    #php_flag session.auto_start off
+
+############################################
+## enable resulting html compression
+
+    ##php_flag zlib.output_compression on
+
+###########################################
+# disable user agent verification to not break multiple image upload
+
+    #php_flag suhosin.session.cryptua off
+
+###########################################
+# turn off compatibility with PHP4 when dealing with objects
+
+    #php_flag zend.ze1_compatibility_mode Off
+
+</IfModule>
+
+<IfModule mod_security.c>
+###########################################
+# disable POST processing to not break multiple image upload
+
+    SecFilterEngine Off
+    SecFilterScanPOST Off
+</IfModule>
+
+<IfModule mod_deflate.c>
+
+############################################
+## enable apache served files compression
+## http://developer.yahoo.com/performance/rules.html#gzip
+
+    # Insert filter on all content
+    ###SetOutputFilter DEFLATE
+    # Insert filter on selected content types only
+    #AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+
+    # Netscape 4.x has some problems...
+    #BrowserMatch ^Mozilla/4 gzip-only-text/html
+
+    # Netscape 4.06-4.08 have some more problems
+    #BrowserMatch ^Mozilla/4\.0[678] no-gzip
+
+    # MSIE masquerades as Netscape, but it is fine
+    #BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+
+    # Don't compress images
+    #SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+
+    # Make sure proxies don't deliver the wrong content
+    #Header append Vary User-Agent env=!dont-vary
+
+</IfModule>
+
+<IfModule mod_ssl.c>
+
+############################################
+## make HTTPS env vars available for CGI mode
+
+    SSLOptions StdEnvVars
+
+</IfModule>
+
+<IfModule mod_rewrite.c>
+
+############################################
+## enable rewrites
+
+    Options +SymLinksIfOwnerMatch
+    RewriteEngine on
+
+	RewriteCond %{HTTP_HOST} ^test1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:test1]
+	RewriteCond %{HTTP_HOST} ^main-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:main_cm]
+	RewriteCond %{HTTP_HOST} ^stage-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:stage_cm]
+	RewriteCond %{HTTP_HOST} ^stage10-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:stage10_cm]
+	RewriteCond %{HTTP_HOST} ^ct2-integ.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_integ]
+	RewriteCond %{HTTP_HOST} ^stage-man.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:stage_man]
+	RewriteCond %{HTTP_HOST} ^ct2-e2e.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_e2e]
+	RewriteCond %{HTTP_HOST} ^ct2-static.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_static]
+	RewriteCond %{HTTP_HOST} ^ct2-validator.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_validator]
+	RewriteCond %{HTTP_HOST} ^ct2-bus.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_bus]
+	RewriteCond %{HTTP_HOST} ^ct2-awa.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_awa]
+	RewriteCond %{HTTP_HOST} ^next-stage31-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_p1]
+	RewriteCond %{HTTP_HOST} ^next-stage31a-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31a_p1]
+	RewriteCond %{HTTP_HOST} ^next-stage31b-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31b_p1]
+	RewriteCond %{HTTP_HOST} ^next-stage31-bus.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_bus]
+	RewriteCond %{HTTP_HOST} ^next-stage31-awa.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_awa]
+	RewriteCond %{HTTP_HOST} ^next-prod07-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod07_p1]
+	RewriteCond %{HTTP_HOST} ^next-demo.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_demo]
+	RewriteCond %{HTTP_HOST} ^ct2-integ-app.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_integ_app]
+	RewriteCond %{HTTP_HOST} ^next-prod07-bus.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod07_bus]
+	RewriteCond %{HTTP_HOST} ^ct2-qa-lions.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_qa_lions]
+	RewriteCond %{HTTP_HOST} ^ct2-qa-vikings.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_qa_vikings]
+	RewriteCond %{HTTP_HOST} ^next-stage31-data.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_data]
+	RewriteCond %{HTTP_HOST} ^stage31-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:stage31_cm]
+	RewriteCond %{HTTP_HOST} ^next-prod36-bus.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod36_bus]
+	RewriteCond %{HTTP_HOST} ^next-prod36-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod36_p1]
+	RewriteCond %{HTTP_HOST} ^prod40-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:prod40_cm]
+	RewriteCond %{HTTP_HOST} ^prod41-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:prod41_cm]
+	RewriteCond %{HTTP_HOST} ^next-stage10-snq2.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage10_snq2]
+	RewriteCond %{HTTP_HOST} ^next-stage31-app1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_app1]
+	RewriteCond %{HTTP_HOST} ^next-stage10-snq.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage10_snq]
+	RewriteCond %{HTTP_HOST} ^avengers-qa-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:avengers_qa_cm]
+	RewriteCond %{HTTP_HOST} ^next-prod01-app1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod01_app1]
+	RewriteCond %{HTTP_HOST} ^next-prod42-pf.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod42_pf]
+	RewriteCond %{HTTP_HOST} ^next-prod36-uxm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod36_uxm]
+	RewriteCond %{HTTP_HOST} ^next-prod07-uxm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod07_uxm]
+    RewriteCond %{HTTP_HOST} ^next-stage31-autoapp-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_autoapp_p1]
+	RewriteCond %{HTTP_HOST} ^next-integ-autoapp-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_integ_autoapp_p1]
+	RewriteCond %{HTTP_HOST} ^stage35-cm.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:stage35_cm]
+	RewriteCond %{HTTP_HOST} ^ct2-integ-newmon.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:ct2_integ_newmon]
+	RewriteCond %{HTTP_HOST} ^next-stage31-cto.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_cto]
+    RewriteCond %{HTTP_HOST} ^next-prod55-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod55_p1]
+	RewriteCond %{HTTP_HOST} ^next-prod58-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod58_p1]
+	RewriteCond %{HTTP_HOST} ^next-integ91-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_integ91_p1]
+	RewriteCond %{HTTP_HOST} ^next-integ91-autoapp-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_integ91_autoapp_p1]
+	RewriteCond %{HTTP_HOST} ^next-integ91-oneclickauto91-p1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_integ91_oneclickauto91_p1]
+	RewriteCond %{HTTP_HOST} ^next-integ91-p21.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_integ91_p21]
+	RewriteCond %{HTTP_HOST} ^next-stage31-p132.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_p132]
+	RewriteCond %{HTTP_HOST} ^next-stage31-p133.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_p133]
+	RewriteCond %{HTTP_HOST} ^next-stage31-p168.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_p168]
+	RewriteCond %{HTTP_HOST} ^next-integ91-p22.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_integ91_p22]
+	RewriteCond %{HTTP_HOST} ^next-stage39-p14.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage39_p14]
+	RewriteCond %{HTTP_HOST} ^next-stage31-p142.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_p142]
+	RewriteCond %{HTTP_HOST} ^next-prod36-p81.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod36_p81]
+	RewriteCond %{HTTP_HOST} ^next-prod07-p32563.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_prod07_p32563]
+	RewriteCond %{HTTP_HOST} ^next-stage31-p143.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_p143]
+	RewriteCond %{HTTP_HOST} ^cs-adobe-1.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:cs_adobe_1]d
+        RewriteCond %{HTTP_HOST} ^cs-cap-01.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_cap_01]
+        RewriteCond %{HTTP_HOST} ^cs-test-01.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_test_01]
+	RewriteCond %{HTTP_HOST} ^nrt-dt-test.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:nrt_dt_test]
+        RewriteCond %{HTTP_HOST} ^cs-stage-next-cloud-a.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_next_cloud_a]
+	RewriteCond %{HTTP_HOST} ^cs-stage-next-cloud-b.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_next_cloud_b]
+	RewriteCond %{HTTP_HOST} ^cs-stage-next-cloud-c.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_next_cloud_c]
+        RewriteCond %{HTTP_HOST} ^cs-prod-auto-01.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_prod_auto_01]
+        RewriteCond %{HTTP_HOST} ^cs-prod-auto-02.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_prod_auto_02]
+        RewriteCond %{HTTP_HOST} ^next-stage31-tag01.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_tag01]
+        RewriteCond %{HTTP_HOST} ^next-stage31-tag02.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_tag02]
+        RewriteCond %{HTTP_HOST} ^next-stage31-tag03.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_tag03]
+        RewriteCond %{HTTP_HOST} ^next-stage31-tag04.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_tag04]
+        RewriteCond %{HTTP_HOST} ^next-stage31-cstage01.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:next_stage31_cstage01]
+        RewriteCond %{HTTP_HOST} ^malka-eu-01.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:malka_eu_01]
+        RewriteCond %{HTTP_HOST} ^cs-us-malka-prod-01.ctqatest.info
+        RewriteRule ^ - [E=MAGE_RUN_CODE:cs_us_malka_prod_01]
+   	RewriteCond %{HTTP_HOST} ^cs-stage-tagetr01.ctqatest.info
+   	RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_tagetr01]
+	RewriteCond %{HTTP_HOST} ^subfirst-cs-stage-tag-qa.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:subfirst_cs_stage_tag_qa]
+	RewriteCond %{HTTP_HOST} ^subsecond-cs-stage-tag-qa.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:subsecond_cs_stage_tag_qa]
+	RewriteCond %{HTTP_HOST} ^cs-stage-tag01.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_tag01]
+    RewriteCond %{HTTP_HOST} ^cs-stage-apppii01.ctqatest.info
+	RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_apppii01]
+  RewriteCond %{HTTP_HOST} ^cs-stage-support01.ctqatest.info
+  RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_support01]
+  RewriteCond %{HTTP_HOST} ^cs-stage-azure01.ctqatest.info
+  RewriteRule ^ - [E=MAGE_RUN_CODE:cs_stage_azure01]
+############################################
+## you can put here your magento root folder
+## path relative to web root
+
+    #RewriteBase /magento/
+
+############################################
+## uncomment next line to enable light API calls processing
+
+#    RewriteRule ^api/([a-z][0-9a-z_]+)/?$ api.php?type=$1 [QSA,L]
+
+############################################
+## rewrite API2 calls to api.php (by now it is REST only)
+
+    RewriteRule ^api/rest api.php?type=rest [QSA,L]
+
+############################################
+## workaround for HTTP authorization
+## in CGI environment
+
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+############################################
+## TRACE and TRACK HTTP methods disabled to prevent XSS attacks
+
+
+
+############################################
+## redirect for mobile user agents
+
+    #RewriteCond %{REQUEST_URI} !^/mobiledirectoryhere/.*$
+    #RewriteCond %{HTTP_USER_AGENT} "android|blackberry|ipad|iphone|ipod|iemobile|opera mobile|palmos|webos|googlebot-mobile" [NC]
+    #RewriteRule ^(.*)$ /mobiledirectoryhere/ [L,R=302]
+
+############################################
+## always send 404 on missing files in these folders
+
+    RewriteCond %{REQUEST_URI} !^/(media|skin|js)/
+
+############################################
+## never rewrite for existing files, directories and links
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+
+############################################
+## rewrite everything else to index.php
+
+    RewriteRule .* index.php [L]
+
+</IfModule>
+
+
+############################################
+## Prevent character encoding issues from server overrides
+## If you still have problems, use the second line instead
+
+    AddDefaultCharset Off
+    #AddDefaultCharset UTF-8
+
+<IfModule mod_expires.c>
+
+############################################
+## Add default Expires header
+## http://developer.yahoo.com/performance/rules.html#expires
+
+    ExpiresDefault "access plus 1 year"
+
+</IfModule>
+
+############################################
+## By default allow all access
+
+    Order allow,deny
+    Allow from all
+
+###########################################
+## Deny access to release notes to prevent disclosure of the installed Magento version
+
+    <Files RELEASE_NOTES.txt>
+        order allow,deny
+        deny from all
+    </Files>
+
+############################################
+## If running in cluster environment, uncomment this
+## http://developer.yahoo.com/performance/rules.html#etags
+
+    #FileETag none
+
+###########################################
+## Deny access to cron.php
+    <Files cron.php>
+
+############################################
+## uncomment next lines to enable cron access with base HTTP authorization
+## http://httpd.apache.org/docs/2.2/howto/auth.html
+##
+## Warning: .htpasswd file should be placed somewhere not accessible from the web.
+## This is so that folks cannot download the password file.
+## For example, if your documents are served out of /usr/local/apache/htdocs
+## you might want to put the password file(s) in /usr/local/apache/.
+
+        #AuthName "Cron auth"
+        #AuthUserFile ../.htpasswd
+        #AuthType basic
+        #Require valid-user
+
+############################################
+
+        Order allow,deny
+        Deny from all
+
+    </Files>

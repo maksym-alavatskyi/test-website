@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ClickTale | Testing Portal | Element Addressing</title> 
+        <link rel="shortcut icon" type="image/png" href="../jasmine/lib/jasmine-2.0.0/jasmine_favicon.png">
+        <link rel="stylesheet" type="text/css" href="../jasmine/lib/jasmine-2.0.0/jasmine.css">
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/jasmine.js"></script>
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/jasmine-html.js"></script>
+        <script type="text/javascript" src="../Jasmine/lib/jasmine-2.0.0/boot.js"></script>
+        <script src="../build/ElementAddressing.js"></script>
+		<script type="text/javascript">
+			ct.ElementAddressing.bootstrap(window, true);
+        </script>
+		<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>                
+    </head>
+<body id="bodyId" name="bodyName">
+    <h1>Element Addressing test page</h1>
+    <div class="a" id="div0">
+        <div id="div1">            
+            <div id="div2">
+                <p id="IDtextDisplayNone" style="display: none">Hello</p>
+                <p id="IDtextvisibilityHidden" style="visibility: hidden">Hello2</p>
+            </div>
+            <div id="div3"></div>
+            <span id="span1"></span>
+            <span>
+                <input type="text" id="input1" name ="nameInput1"/>
+                <input type="text"  name ="nameInput2"/>
+                <input type="text"  name ="nameInput3"/>
+                <input type="text"  name ="nameInput3"/>
+            </span>
+            <select id="IDselect" name="nameSelect">
+                <option>1</option>
+                <option id="111111">2</option>
+                <option id="IDoption3">3</option>
+                <option id="IDoption4" name="NameOption4">4</option>
+                <option name="NameOption5">5</option>
+                <option>6</option>         
+            </select>
+            <br/>
+            <textarea rows="4" cols="50" name="nameTextearea1">
+                    Element addressing text area test
+            </textarea>
+        </div>        
+        <div id="unique"></div>
+        <form action="" id="formID1" name="formName1">
+            <input type="radio" name="sex" value="male" id="radio1"/>Male
+            <br>
+            <input type="radio" name="sex" value="female" checked id="radio2"/>Female
+            <br>
+            <textarea rows="15" cols="70" name="nameTexteareaForm1" id="textareaID1">
+                    Element addressing - text area in form 1
+            </textarea>
+			<textarea rows="15" cols="70" name="nameTexteareaForm1">
+                    Element addressing - text area in form 1
+            </textarea>
+            <br>
+            <button  name="ButtonName">Dump XPath by element</button>
+            <br>
+            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSL0zEJyXZRqCoBOsnVA43PYBx6pXpGdnxummLXThFSOXB0I5PZRqUeP8s" width="145" height="126" id="imageID" name="imageName">
+        </form>
+			<br>
+			<br>
+			<br>
+		<form action="" name="formName2"id="formID2">
+            <input type="radio" name="sex" value="male" id="radio3" />Male
+            <br>
+            <input type="radio" name="sex" value="female" checked id="radio4"/>Female
+            <br>
+            <textarea rows="15" cols="70" name="nameTexteareaForm1">
+                    Element addressing - text area in form 2
+            </textarea>
+            <br>
+            <button  name="ButtonName">Dump XPath by element</button>
+            <br>
+            <img src="http://d.ibtimes.co.uk/en/full/1409516/how-update-nexus-5-official-android-5-0-lollipop-build-lrx21o-via-factory-image.jpg" width="145" height="126" id="imageID1" name="imageName">
+        </form>
+		<form>
+            <button  name="ButtonNameUnderFormWithoutID">Button under Form without ID or CTID</button>
+        </form>
+		
+    </div>
+	
+    <script>
+        
+//Compare elements from ID       
+        $(function(){
+             console.log("******** By ID tests ******");
+            //Test 1 - Div element
+            var uniqueElelmentByID1 = document.getElementById("div0");
+            var elementPathById1 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID1, document.body);
+           // uniqueElelmentByID1.parentNode.insertBefore(document.createElement("input"), uniqueElelmentByID1);           
+            var resolvedElementById1 = ct.ElementAddressing.elementFromPath(elementPathById1, document.body);
+            console.log("Div0 - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID1 === resolvedElementById1);
+            
+            //Test 2 - Span element
+            var uniqueElelmentByID2 = document.getElementById("span1");
+            var elementPathById2 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID2, document.body);
+            var resolvedElementById2 = ct.ElementAddressing.elementFromPath(elementPathById2, document.body);            
+            console.log("Span element - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID2 === resolvedElementById2);
+          
+            //Test 3 - Input element (add input elements)
+            var uniqueElelmentByID3 = document.getElementById("input1");
+            var elementPathById3 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID3, document.body);            
+            var resolvedElementById3 = ct.ElementAddressing.elementFromPath(elementPathById3, document.body);
+                //add input element before 'input1'
+            uniqueElelmentByID3.parentNode.insertBefore(document.createElement("input"), uniqueElelmentByID3); 
+            uniqueElelmentByID3 = document.getElementById("input1");
+            elementPathById3 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID3, document.body); 
+                //add input element after 'input1'
+            uniqueElelmentByID3.parentNode.insertBefore(document.createElement("input"), uniqueElelmentByID3.nextSibling);
+            uniqueElelmentByID3 = document.getElementById("input1");
+            elementPathById3 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID3, document.body);   
+            console.log("Input element. resolvedEl and uniqueEl are equal: ", uniqueElelmentByID3 === resolvedElementById3);
+          
+            //Test 4 - Select element
+            var uniqueElelmentByID4 = document.getElementById("IDselect");
+            var elementPathById4 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID4, document.body);
+            var resolvedElementById4 = ct.ElementAddressing.elementFromPath(elementPathById4, document.body);            
+            console.log("Select element. resolvedEl and uniqueEl are equal: ", uniqueElelmentByID4 === resolvedElementById4);
+            
+            //Test 5 - Option element (insert new option element during the test)
+            var uniqueElelmentByID5 = document.getElementById("IDoption4");
+            var elementPathById5 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID5, document.body);
+            var resolvedElementById5 = ct.ElementAddressing.elementFromPath(elementPathById5, document.body);            
+            uniqueElelmentByID5.parentNode.insertBefore(document.createElement("option"), uniqueElelmentByID5);
+            console.log("Option - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID5 === resolvedElementById5);
+            
+             //Test 6 - Div2 element
+            var uniqueElelmentByID6 = document.getElementById("div2");
+            var elementPathById6 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID6, document.body);
+            var resolvedElementById6 = ct.ElementAddressing.elementFromPath(elementPathById6, document.body);            
+            console.log("Div2 - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID6 === resolvedElementById6);
+            
+            //Test 7 - Display.none element
+            var uniqueElelmentByID7 = document.getElementById("IDtextDisplayNone");
+            var elementPathById7 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID7, document.body);
+            var resolvedElementById7 = ct.ElementAddressing.elementFromPath(elementPathById7, document.body);            
+            console.log("IDtextDisplayNone - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID7 === resolvedElementById7);
+            
+             //Test 8 - Visability.Hiden element
+            var uniqueElelmentByID8 = document.getElementById("IDtextvisibilityHidden");
+            var elementPathById8 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID8, document.body);
+            var resolvedElementById8 = ct.ElementAddressing.elementFromPath(elementPathById8, document.body);            
+            console.log("IDtextvisibilityHidden - resolvedEl and uniqueEl are equal -should be False: ", uniqueElelmentByID8 === resolvedElementById8);
+            
+             //Test 9 - Input element insert after
+            var uniqueElelmentByID9 = document.getElementById("input1");
+            var elementPathById9 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID9, document.body);
+            var resolvedElementById9 = ct.ElementAddressing.elementFromPath(elementPathById9, document.body);
+            uniqueElelmentByID9 = document.getElementById("input1");
+            elementPathById9 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID9, document.body);
+            uniqueElelmentByID1.parentNode.insertBefore(document.createElement("input"), uniqueElelmentByID1);
+            console.log("Add new element - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID9 === resolvedElementById9);
+        
+             //Test 10 - image element
+            var uniqueElelmentByID10 = document.getElementById("imageID");
+            var elementPathById10 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID10, document.body);
+            var resolvedElementById10 = ct.ElementAddressing.elementFromPath(elementPathById10, document.body);            
+            console.log("image - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID10 === resolvedElementById10);
+			 
+			//Test 11 - textarea element
+            var uniqueElelmentByID11 = document.getElementById("textareaID1");
+            var elementPathById11 = ct.ElementAddressing.pathFromElement(uniqueElelmentByID11, document.body);
+            var resolvedElementById11 = ct.ElementAddressing.elementFromPath(elementPathById11, document.body);            
+            console.log("textarea - resolvedEl and uniqueEl are equal: ", uniqueElelmentByID11 === resolvedElementById11);
+			
+        });
+                
+//Compare elements from Name
+         $(function(){
+            console.log("******** Name tests  ******");
+            //Test 1 - Select element
+            var uniqueElelmentByName1 = document.getElementsByName("nameSelect");
+            var elementPathByName1 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName1[0], document.body);
+            var resolvedElementByName1 = ct.ElementAddressing.elementFromPath(elementPathByName1, document.body);            
+            console.log("Select name - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName1[0] === resolvedElementByName1);
+     
+             //Test 2 - Text Area element
+            var uniqueElelmentByName2 = document.getElementsByName("nameTexteareaForm1");
+            var elementPathByName2 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName2[0], document.body);
+            var resolvedElementByName2 = ct.ElementAddressing.elementFromPath(elementPathByName2, document.body);            
+            console.log("Text area name - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName2[0] === resolvedElementByName2);
+            debugger;
+            //Test 3 - Radio button element - test result true
+            var uniqueElelmentByName3 = document.getElementsByName("sex");
+            var elementPathByName3 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName3[1], document.body);
+            var resolvedElementByName3 = ct.ElementAddressing.elementFromPath(elementPathByName3, document.body);            
+            console.log("Radio - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName3[1] === resolvedElementByName3);
+           
+            //Test 4 - Input Radio button element - test result false
+            var uniqueElelmentByName4 = document.getElementsByName("sex");
+            var elementPathByName4 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName4[0], document.body);
+            var resolvedElementByName4 = ct.ElementAddressing.elementFromPath(elementPathByName4, document.body);            
+            console.log("Radio (false) - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName4[1] === resolvedElementByName4);
+                                       
+            //Test 5 - BodyName element 
+            var uniqueElelmentByName5 = document.getElementsByName("bodyName");
+            var elementPathByName5 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName5[0], document.body);
+            var resolvedElementByName5 = ct.ElementAddressing.elementFromPath(elementPathByName5, document.body);            
+            console.log("Body - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName5[0] === resolvedElementByName5);
+             
+            //Test 6 - nameTextearea1 element 
+            var uniqueElelmentByName6 = document.getElementsByName("nameTextearea1");
+            var elementPathByName6 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName6[0], document.body);
+            var resolvedElementByName6 = ct.ElementAddressing.elementFromPath(elementPathByName6, document.body);            
+            console.log("nameTextearea1 - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName6[0] === resolvedElementByName6);
+			 debugger;
+            //Test 7 - Input by Name element 
+            var uniqueElelmentByName7 = document.getElementsByName("nameInput2");
+            var elementPathByName7 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName7[0], document.body);
+            var resolvedElementByName7 = ct.ElementAddressing.elementFromPath(elementPathByName7, document.body);            
+            console.log("Input by Name - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName7[0] === resolvedElementByName7);
+             
+            //Test 8 - Button Name element 
+            var uniqueElelmentByName8 = document.getElementsByName("ButtonName");
+            var elementPathByName8 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName8[0], document.body);
+            var resolvedElementByName8 = ct.ElementAddressing.elementFromPath(elementPathByName8, document.body);            
+            console.log("Button by Name - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName8[0] === resolvedElementByName8);
+             
+            //Test 9 - image Name element 
+            var uniqueElelmentByName9 = document.getElementsByName("imageName");
+            var elementPathByName9 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName9[0], document.body);
+            var resolvedElementByName9 = ct.ElementAddressing.elementFromPath(elementPathByName9, document.body);            
+            console.log("image by Name - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName9[0] === resolvedElementByName9);
+             
+            //Test 10 - Duplicate Input byName element 
+            var uniqueElelmentByName10 = document.getElementsByName("nameInput3");
+            var elementPathByName10 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName10[0], document.body);
+            var resolvedElementByName10 = ct.ElementAddressing.elementFromPath(elementPathByName10, document.body);     
+                          
+            //Test 11 - Insert new Input element to element with duplicate name  (result should be false)
+            var uniqueElelmentByName11 = document.getElementsByName("nameInput3");
+            var elementPathByName11 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName11[0], document.body);           
+            var resolvedElementByName11 = ct.ElementAddressing.elementFromPath(elementPathByName11, document.body);  
+             //add input element before 'nameInput3'
+            uniqueElelmentByName11[0].parentNode.insertBefore(document.createElement("input"), uniqueElelmentByName11[0]); 
+            console.log("Insert new Input (should be false)  - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName11[1] === resolvedElementByName11);
+			
+			 //Test 12 - Form1 Name element 
+            var uniqueElelmentByName12 = document.getElementsByName("formName1");
+            var elementPathByName12 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName12[0], document.body);
+            var resolvedElementByName12 = ct.ElementAddressing.elementFromPath(elementPathByName12, document.body);            
+            console.log("Form1 by Name - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName12[0] === resolvedElementByName12);
+			
+			//Test 13 - Form2 Name element 
+            var uniqueElelmentByName13 = document.getElementsByName("formName2");
+            var elementPathByName13 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName13[0], document.body);
+            var resolvedElementByName13 = ct.ElementAddressing.elementFromPath(elementPathByName13, document.body);            
+            console.log("Form2 by Name - resolvedEl and uniqueEl are equal: ", uniqueElelmentByName13[0] === resolvedElementByName13);
+			
+			//Test 14 - ButtonNameUnderFormWithoutID  element 
+            var uniqueElelmentByName14 = document.getElementsByName("ButtonNameUnderFormWithoutID");
+            var elementPathByName14 = ct.ElementAddressing.pathFromElement(uniqueElelmentByName14[0], document.body);
+            var resolvedElementByName14 = ct.ElementAddressing.elementFromPath(elementPathByName14, document.body);            
+            console.log("ButtonNameUnderFormWithoutID-resolvedEl and uniqueEl are equal(should resolved by path):", uniqueElelmentByName14[0] === resolvedElementByName14);
+			
+        });
+                
+//Compare elements from CTID
+        $(function(){
+            console.log("******** CTID tests ******");
+            //Test 1 - Input element by CTID
+            var uniqueElelmentByCTID1 = document.getElementById("IDoption4");
+            ct.ElementAddressing.setCustomElementID(uniqueElelmentByCTID1, "CTID1");            
+            var elementPathByCTID1 = ct.ElementAddressing.pathFromElement(uniqueElelmentByCTID1, document.body);
+            var resolvedElementByCTID1 = ct.ElementAddressing.elementFromPath(elementPathByCTID1, document.body);
+            console.log("IDoption4 - resolvedEl and uniqueEl are equal: ", uniqueElelmentByCTID1 === resolvedElementByCTID1);
+            
+            //Test 2 - Body element by CTID
+            var uniqueElelmentByCTID2 = document.getElementById("bodyId");
+            ct.ElementAddressing.setCustomElementID(uniqueElelmentByCTID2, "CTID2");
+            var elementPathByCTID2 = ct.ElementAddressing.pathFromElement(uniqueElelmentByCTID2, document.body);
+            var resolvedElementByCTID2 = ct.ElementAddressing.elementFromPath(elementPathByCTID2, document.body);
+            console.log("bodyId - resolvedEl and uniqueEl are equal: ", uniqueElelmentByCTID2 === resolvedElementByCTID2);
+        
+            //Test 3 - Div element by CTID (change element ID)
+            var uniqueElelmentByCTID3 = document.getElementById("div0");
+            ct.ElementAddressing.setCustomElementID(uniqueElelmentByCTID3, "CTID3");            
+            var elementPathByCTID3 = ct.ElementAddressing.pathFromElement(uniqueElelmentByCTID3, document.body);
+            var resolvedElementByCTID3 = ct.ElementAddressing.elementFromPath(elementPathByCTID3, document.body);
+            uniqueElelmentByCTID3.id="111111";
+            console.log("DivID - resolvedEl and uniqueEl are equal: ", uniqueElelmentByCTID3 === resolvedElementByCTID3);
+            
+             //Test 4 - Option test by CTID
+            var uniqueElelmentByCTID4 = document.getElementById("IDoption3");
+            ct.ElementAddressing.setCustomElementID(uniqueElelmentByCTID4, "CTID4");            
+            var elementPathByCTID4 = ct.ElementAddressing.pathFromElement(uniqueElelmentByCTID4, document.body);
+            var resolvedElementByCTID4 = ct.ElementAddressing.elementFromPath(elementPathByCTID4, document.body);
+            uniqueElelmentByCTID4.id="111111";
+            console.log("IDoption3 - resolvedEl and uniqueEl are equal: ", uniqueElelmentByCTID4 === resolvedElementByCTID4);
+            
+			 //Test 5 - Form 1 element by CTID
+            var uniqueElelmentByCTID5 = document.getElementById("formID1");
+            ct.ElementAddressing.setCustomElementID(uniqueElelmentByCTID5, "CTID5");
+            var elementPathByCTID5 = ct.ElementAddressing.pathFromElement(uniqueElelmentByCTID5, document.body);
+            var resolvedElementByCTID5 = ct.ElementAddressing.elementFromPath(elementPathByCTID5, document.body);
+            console.log("Form element - resolvedEl and uniqueEl are equal: ", uniqueElelmentByCTID5 === resolvedElementByCTID5);
+            
+			 //Test 6 - Form 2 element by CTID
+            var uniqueElelmentByCTID6 = document.getElementById("formID2");
+            ct.ElementAddressing.setCustomElementID(uniqueElelmentByCTID6, "CTID6");
+            var elementPathByCTID6 = ct.ElementAddressing.pathFromElement(uniqueElelmentByCTID6, document.body);
+            var resolvedElementByCTID6 = ct.ElementAddressing.elementFromPath(elementPathByCTID6, document.body);
+            console.log("Form element - resolvedEl and uniqueEl are equal: ", uniqueElelmentByCTID6 === resolvedElementByCTID6);
+        });
+       
+        
+    </script>
+</body>
+</html>
